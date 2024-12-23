@@ -1,0 +1,225 @@
+/* Base Styles for MyAio Component with Dark Theme */
+.myaio-container {
+  padding: 20px;
+  background-color: #121212; /* Dark background for the container */
+  color: #e0e0e0; /* Light text color */
+  min-height: 100vh;
+}
+
+.myaio-tabs {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.myaio-tabs button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333; /* Dark background for tabs */
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.myaio-tabs .active-tab {
+  background-color: #6200ea; /* Active tab color */
+  color: white;
+}
+
+.myaio-content {
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+.myaio-header,
+.myaio-item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Ensure 6 columns for both header and items */
+  padding: 10px 0;
+  text-align: center;
+  grid-gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.myaio-header {
+  font-weight: bold;
+  background-color: #1e1e1e; /* Dark background for header */
+  border-radius: 10px;
+}
+
+.myaio-item {
+  border-bottom: 1px solid #444;
+  background-color: #1f1f1f; /* Dark background for items */
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.myaio-item:hover {
+  background-color: #333; /* Slightly lighter background on hover */
+  transform: translateY(-2px); /* Elevates the item on hover */
+}
+
+.myaio-item-thumbnail {
+  display: flex;
+  justify-content: center;
+}
+
+.thumbnail-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #6200ea; /* Accent color for placeholders */
+  border-radius: 50%;
+}
+
+.myaio-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.myaio-upload-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #6200ea; /* Button background */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.myaio-upload-btn:hover {
+  background-color: #3700b3; /* Darker button on hover */
+}
+
+.myaio-search-input {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 20px;
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.myaio-item-details {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2c2c2c; /* Dark background for details */
+  border-radius: 8px;
+  border: 1px solid #444;
+}
+
+.myaio-item-detail {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.myaio-item-detail strong {
+  color: #6200ea; /* Accent color for strong text */
+}
+
+/* Responsive Styling for Small Screens (Less than 480px) */
+@media (max-width: 480px) {
+  .myaio-container {
+    padding: 10px;
+  }
+
+  .myaio-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .myaio-tabs button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  /* Header Layout (Title, Data, Action) */
+  .myaio-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for Title, Data, and Action */
+    gap: 5px; /* Reduced gap between columns */
+    padding: 10px 0;
+    font-size: 0.9rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  /* Adjusting Title Section */
+  .myaio-header .title {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Adjusting Data Section */
+  .myaio-header .data {
+    text-align: center;
+    padding: 5px;
+  }
+
+  /* Adjusting Action Section */
+  .myaio-header .action {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+    grid-column: span 1;
+  }
+
+  /* Items in the list (data rows) */
+  .myaio-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 10px 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Thumbnail adjustment */
+  .myaio-item-thumbnail {
+    justify-content: center;
+  }
+
+  .thumbnail-placeholder {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Footer styling */
+  .myaio-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+  }
+
+  .myaio-upload-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+  }
+
+  .myaio-search-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .myaio-item-details {
+    padding: 15px;
+  }
+
+  .myaio-item-detail {
+    font-size: 14px;
+  }
+
+  .myaio-item-detail strong {
+    font-size: 1rem;
+  }
+}

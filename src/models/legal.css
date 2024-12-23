@@ -1,0 +1,397 @@
+/* Style for main container */
+.main-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  margin: 20px;
+  height: 90vh; /* Ensure it takes full screen height */
+  justify-content: space-between;
+}
+
+/* Flexbox container for input and output sections */
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 20px;
+  gap: 20px; /* Ensure space between input and output */
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Style for form container */
+.form-container {
+  width: 100%;
+  max-width: 45%; /* Make sure it is at most 45% width of the parent container */
+  background: linear-gradient(135deg, #d5dbe1, #080808);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 650px; /* Same height as output-section */
+  box-sizing: border-box;
+}
+
+/* Style for input section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  height: 110%; /* Ensure it fills the form-container */
+  overflow-y: auto; /* Allow scrolling within input section if necessary */
+}
+
+/* Style for select and textarea */
+input[type="text"], select, textarea {
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgb(0, 0, 0);
+  transition: border-color 0.3s ease;
+  width: 100%; /* Ensure inputs take up full width of container */
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Style for labels */
+label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Style for buttons */
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #05294d, #959da3);
+  color: white;
+  border: none;
+  border-radius: 56px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #b8d5f1, #2466a1);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Style for output section */
+.output-section {
+  width: 100%;
+  max-width: 50%; /* Same as form-container to align with input */
+  padding: 25px;
+  background: linear-gradient(145deg, #85859e, #ababaf); /* Gradient background */
+  border: 1px solid #181818;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 650px; /* Same height as form-container */
+  overflow-y: auto; /* Enable scroll if content overflows */
+  box-sizing: border-box;
+}
+
+/* Style for "Made by" */
+.made-by {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Download PDF button */
+.download-button {
+  background-color: #243990;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries */
+
+.main-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+.navbar h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.academic {
+  color: #0000ff; /* Color for Academic */
+  font-weight: bold;
+}
+
+.advisor {
+  color: #ff6f00; /* Color for Advisor */
+  font-weight: bold;
+}
+
+
+
+/* Scroll to output section when Generate Response is clicked */
+.scroll-to-output {
+scroll-behavior: smooth;
+}
+.form-container {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+}
+
+input, select, textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.output-section {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  height: 650px; /* Adjust this height based on the content */
+  color: #000000;
+}
+
+/* General Styles for the loading box */
+.loading-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Depth shadow */
+}
+
+/* Container for the loader */
+.loader-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: container-rotate 3s infinite linear; /* 3D rotation of the whole container */
+}
+
+/* Loader Style: 3D rotating ring with neon glowing */
+.loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  border-top-color: #03a9f4; /* Outer ring color */
+  border-bottom-color: #ff4081; /* Inner ring color */
+  animation: spin 2s linear infinite, glow 1.5s ease-out infinite alternate;
+  box-shadow: 0 0 15px rgba(3, 169, 244, 0.8), 0 0 30px rgba(255, 64, 129, 0.8);
+  transform-style: preserve-3d;
+}
+
+/* 3D rotating effect */
+@keyframes container-rotate {
+  0% {
+      transform: rotateY(0deg);
+  }
+  100% {
+      transform: rotateY(360deg);
+  }
+}
+
+/* Glowing neon effect for loader */
+@keyframes glow {
+  0% {
+      box-shadow: 0 0 15px rgba(3, 169, 244, 0.8), 0 0 30px rgba(255, 64, 129, 0.8);
+  }
+  50% {
+      box-shadow: 0 0 30px rgba(3, 169, 244, 1), 0 0 50px rgba(255, 64, 129, 1);
+  }
+  100% {
+      box-shadow: 0 0 15px rgba(3, 169, 244, 0.8), 0 0 30px rgba(255, 64, 129, 0.8);
+  }
+}
+
+/* Spin animation for continuous rotation */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Text Style */
+.loading-box span {
+  font-size: 20px;
+  color: #03a9f4;
+  margin-left: 20px;
+  font-family: 'Cousine', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: text-fade 2s ease-out infinite;
+}
+
+/* Smooth fade effect for the text */
+@keyframes text-fade {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/* Neon glow effect for the text */
+@keyframes text-glow {
+  0% {
+      text-shadow: 0 0 5px #03a9f4, 0 0 10px #03a9f4, 0 0 15px #ff4081, 0 0 20px #ff4081;
+  }
+  50% {
+      text-shadow: 0 0 10px #03a9f4, 0 0 20px #03a9f4, 0 0 25px #ff4081, 0 0 30px #ff4081;
+  }
+  100% {
+      text-shadow: 0 0 5px #03a9f4, 0 0 10px #03a9f4, 0 0 15px #ff4081, 0 0 20px #ff4081;
+  }
+}
+
+/* Hover effects for interactivity */
+.loader-container:hover .loader {
+  animation: spin 1.5s linear infinite, glow 0.75s ease-out infinite alternate;
+}
+
+/* Background animation for the loader container */
+.loader-container::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: linear-gradient(45deg, #3b5b92, #ab7cb4);
+  z-index: -1;
+  border-radius: 50%;
+  animation: background-shift 3s ease-in-out infinite;
+}
+
+/* Background animation for the loader */
+@keyframes background-shift {
+  0% {
+      background: linear-gradient(45deg, #03a9f4, #ff4081);
+  }
+  50% {
+      background: linear-gradient(45deg, #ff4081, #03a9f4);
+  }
+  100% {
+      background: linear-gradient(45deg, #03a9f4, #ff4081);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust the main-container to take full width on smaller screens */
+  .main-container {
+    height: auto;
+    margin: 0px;
+    justify-content: flex-start;
+    width: 250px;
+  }
+
+  /* Stack the content section vertically */
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  /* Adjust form-container width to 120% on small screens */
+  .form-container,
+  .output-section {
+    max-width: 120%;
+    width: 200%;
+  }
+
+  /* Adjust button and text input padding for small screens */
+  input[type="text"],
+  select,
+  textarea {
+    padding: 10px 15px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .download-button {
+    width: 100%;
+  }
+
+  /* Adjust output section height for better visibility */
+  .output-section {
+    height: 400px;
+  }
+}
+
+/* Scroll to output section when Generate Response is clicked */
+.scroll-to-output {
+  scroll-behavior: smooth;
+}

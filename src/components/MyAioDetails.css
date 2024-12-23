@@ -1,0 +1,81 @@
+/* Styling for MyAioDetails Component */
+
+.myaio-details-container {
+    font-family: 'Helvetica Neue', sans-serif;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 900px;
+    background: linear-gradient(135deg, #4e5b6e, #1c2b36);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    overflow: hidden;
+}
+
+.myaio-details-container h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #ff6f61;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+}
+
+
+.myaio-item-detail {
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    background: #b8babc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.myaio-item-detail:hover {
+    background-color: #f4f4f4;
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.myaio-item-detail strong {
+    font-size: 1.2rem;
+    color: #343434;
+    margin-right: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.myaio-item-detail span {
+    font-size: 1.1rem;
+    color: #e2e2e2;
+    text-align: right;
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+/* Add responsive styling */
+@media (max-width: 768px) {
+    .myaio-details-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .myaio-item-detail {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .myaio-item-detail strong {
+        margin-bottom: 10px;
+    }
+
+    .myaio-item-detail span {
+        word-break: break-all;
+    }
+}
+

@@ -1,0 +1,380 @@
+/* BodySection.css */
+
+/* Ensure that the main container can scroll if content overflows */
+main {
+    height: 90vh; /* Takes up the entire viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 40px 0;
+}
+
+/* Hero Section */
+
+/* Hero Image Styling */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+    z-index: 0; /* Place it behind other content */
+    overflow: hidden; /* Prevents overflow of video */
+}
+
+.hero-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the entire area */
+    filter: brightness(0.5); /* Darkens video for better text visibility */
+}
+
+.hero-section h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    position: relative; /* Ensures h1 is above the video */
+    z-index: 1; /* Brings h1 above the video */
+}
+
+.hero-section p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    position: relative; /* Ensures paragraph is above the video */
+    z-index: 1; /* Brings paragraph above the video */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, #00aaff, #0033cc);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative; /* Ensures button is above the video */
+    z-index: 1; /* Brings button above the video */
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #0077ff, #002a99);
+    transform: scale(1.05);
+}
+
+
+/* Features Section */
+.features-section {
+    background: linear-gradient(135deg, #ffffff, #b6b3b3); /* Dark gradient */
+    text-align: center;
+    padding: 60px 0;
+}
+
+.features-section h2 {
+    font-size: 40px;
+    color: #304b6a; /* Light text for contrast */
+    margin-bottom: 30px;
+}
+
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-item {
+    background: #333; /* Dark background for cards */
+    border: 1px solid #444; /* Lighter border to stand out on dark background */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    color: #bbb; /* Light gray text for readability */
+    transition: transform 0.3s ease;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #FF6600; /* Accent color for titles */
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #ddd; /* Light gray text for description */
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    background: linear-gradient(135deg, #a8a7a7, #f7f7f7); /* Dark gradient */
+    text-align: center;
+    padding: 60px 0;
+}
+
+.how-it-works-section h2 {
+    font-size: 40px;
+    color: #403572;
+    margin-bottom: 30px;
+}
+
+.how-it-works-section .steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.step {
+    background: #333; /* Darker card background */
+    border: 1px solid #444; /* Slightly lighter border for better contrast */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    color: #bbb; /* Light gray text for readability */
+    transition: transform 0.3s ease;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    color: #FF6600; /* Accent color for step titles */
+    margin-bottom: 15px;
+}
+
+.step p {
+    font-size: 1rem;
+    color: #ddd; /* Light gray text for description */
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Solutions Section */
+.solutions-section {
+    background: linear-gradient(135deg, #f9f9f9, #cdcbcb); /* Dark gradient */
+    text-align: center;
+    padding: 60px 0;
+}
+
+.solutions-section h2 {
+    font-size: 40px;
+    color: #2f4b7d;
+    margin-bottom: 30px;
+}
+
+.solutions-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.solution-item {
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    color: #bbb;
+    transition: transform 0.3s ease;
+}
+
+.solution-item h3 {
+    font-size: 1.5rem;
+    color: #FF6600; /* Accent color for titles */
+    margin-bottom: 15px;
+}
+
+.solution-item p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.solution-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Call to Action Section */
+.cta-section {
+    background: linear-gradient(135deg, #284387, #040e2c);
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #156994, #0d2059);
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #0077ff, #002a99);
+    transform: scale(1.05);
+}
+
+/* About Section */
+.about-section {
+    background: linear-gradient(135deg, #c8c8c8, #f7f7f7);
+    text-align: center;
+    padding: 60px 20px; /* More padding for a spacious feel */
+}
+
+.about-section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #244c61; /* Match with the theme color */
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #000000; /* Darker text for better readability */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto; /* Center the paragraph */
+}
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(135deg, #f6f6f6, #e8e8e8); /* Dark gradient background */
+    text-align: left;
+    padding: 60px 20px; /* Ample padding for content */
+}
+
+.contact-section h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #2c3862; /* Light color for better contrast */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000; /* Light color for labels */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px; /* Slightly larger padding for comfort */
+    border: 1px solid #080808; /* Lighter border for contrast */
+    border-radius: 8px;
+    font-size: 16px;
+    background: #e2e0e0; /* Dark background for input fields */
+    color: #bbb; /* Light text for inputs */
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #FF6600; /* Highlight border color on focus */
+}
+
+.contact-form textarea {
+    height: 100px;
+}
+
+.submit-button {
+    padding: 15px 30px; /* Consistent button padding */
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(135deg, #FF6600, #0e34a5); /* Accent colors for the button */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #FF6600, #0077ff); /* Accent change on hover */
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background-color: #121212; /* Dark background */
+    padding: 20px 0;
+    color: #bbb; /* Light text for contrast */
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    font-size: 1.8rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #FF6600; /* Accent color on hover */
+}
+
+.footer p {
+    font-size: 1rem;
+    color: #bbb; /* Light color for footer text */
+}
+
+/* Call to Action Section */
+.cta-section {
+    background: linear-gradient(135deg, #1a1a1a, #040e2c); /* Dark gradient */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    color: #ffffff; /* Light text for heading */
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    color: #bbb; /* Light text for paragraph */
+    margin-bottom: 30px;
+}
