@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AuthPage.css';
 import { signInWithGoogle, auth } from './firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
-import backgroundVideo from './assets/hero.mp4'; // Adjust the path as necessary
+
 
 const AuthPage = ({ isSignUp, onAuthChange, onClose, onAuthSuccess }) => {
     const [formData, setFormData] = useState({
@@ -64,14 +64,11 @@ const AuthPage = ({ isSignUp, onAuthChange, onClose, onAuthSuccess }) => {
     return (
         <div className="auth-overlay">
             <div className="auth-video-background">
-                <video autoPlay loop muted className="background-video">
-                    <source src={backgroundVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                
             </div>
               <div className="auth-container">
                <div className="auth-image">
-               <h1 style={{ color: "darkblue" }}><b>Get Tailored Advice with AIO</b></h1>
+               <h1 style={{ color: "red" }}><b>Let's Reuse the product and save the world</b></h1>
                </div>
                 <div className="auth-form-container">
                     <button className="close-button" onClick={onClose}>✖</button>
@@ -153,12 +150,7 @@ const AuthPage = ({ isSignUp, onAuthChange, onClose, onAuthSuccess }) => {
                         </form>
                     )}
 
-                    {/* Forgot Password Link */}
-                    {!isSignUp && !showReset && (
-                        <p className="forgot-password" onClick={() => setShowReset(true)}>
-                            Forgot Password?
-                        </p>
-                    )}
+                    
 
                     <div className="auth-google">
                         <button className="google-button" onClick={handleGoogleAuth}>

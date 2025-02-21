@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -12,101 +11,97 @@ const Home = () => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // Extracting the user's display name or email
         setUsername(user.displayName || user.email.split('@')[0]);
       } else {
-        // If no user is logged in, redirect to the login page
         navigate('/auth');
       }
     });
-
-    // Cleanup the subscription on component unmount
     return () => unsubscribe();
   }, [navigate]);
 
-  const advisorModels = [
-    {
-      id: 'legal',
-      name: 'Legal Advisor',
-      description: 'Get legal insights and support.',
-      path: '/models/legal',
-    },
-    {
-      id: 'financial',
-      name: 'Financial Advisor',
-      description: 'Manage your finances with expert advice.',
-      path: '/models/financial',
-    },
-    {
-      id: 'tech',
-      name: 'Tech Advisor',
-      description: 'Solve tech-related issues with ease.',
-      path: '/models/tech',
-    },
-    {
-      id: 'travel',
-      name: 'Travel Advisor',
-      description: 'Plan your trips with expert travel advice.',
-      path: '/models/travel',
-    },
-    {
-      id: 'health',
-      name: 'Health Advisor',
-      description: 'Stay healthy with personalized recommendations.',
-      path: '/models/health',
-    },
-    {
-      id: 'academic',
-      name: 'Academic Advisor',
-      description: 'Get guidance on academic goals and educational plans.',
-      path: '/models/academic',
-    },
-    {
-      id: 'career',
-      name: 'Career Advisor',
-      description: 'Plan your career and explore opportunities.',
-      path: '/models/career',
-    },
-    {
-      id: 'entertainment',
-      name: 'Entertainment Advisor',
-      description: 'Plan your entertainment activities and explore options.',
-      path: '/models/entertainment',
-    }    
-  ];
-
   return (
     <div className="home dark-theme">
+      {/* Decorative Divider */}
+      <div className="nav-hero-divider"></div>
+
+      {/* Hero Section */}
       <section className="hero-section">
+
         <div className="container">
           <div className="hero-content">
             <h1>Welcome, {username}</h1>
-            <p>Your AI-powered advisor system for personalized recommendations and solutions.</p>
+            <p>Your AI-powered Recycler system for innovative and sustainable solutions.</p>
+            <button 
+              className="dynamic-recycle-button"
+              onClick={() => navigate('/models/RecyclerApp')}
+            >
+              Let's Recycle!
+              <span className="button-icon">♻️</span>
+            </button>
           </div>
         </div>
       </section>
 
-      <section className="advisor-models">
+
+      {/* Introduction Section */}
+      <section className="intro-section">
         <div className="container">
-          <h2>Select an Advisor Model</h2>
-          <div className="models-grid">
-            {advisorModels.map((model) => (
-              <div key={model.id} className="advisor-card">
-                <button
-                  className="advisor-button"
-                  onClick={() => navigate(model.path)}
-                >
-                  {model.name}
-                </button>
-                <p className="model-description">{model.description}</p>
-              </div>
-            ))}
+          <h2>What We Offer</h2>
+          <p>At RecyclerApp, we believe in transforming waste into wonders. Our platform empowers you to recycle effectively, upcycle creatively, and learn sustainable practices that contribute to a cleaner planet.</p>
+        </div>
+      </section>
+
+      {/* Recycling Benefits Section */}
+      <section className="benefits-section">
+        <div className="container">
+          <h2>Why Recycle?</h2>
+          <div className="benefits-grid">
+            <div className="benefit-card">
+              <h3>🌍 Environmental Protection</h3>
+              <p>Recycling reduces pollution, conserves natural resources, and decreases greenhouse gas emissions.</p>
+            </div>
+            <div className="benefit-card">
+              <h3>💼 Economic Benefits</h3>
+              <p>Recycling creates jobs, reduces waste management costs, and conserves energy in manufacturing.</p>
+            </div>
+            <div className="benefit-card">
+              <h3>🏭 Resource Conservation</h3>
+              <p>Recycling helps preserve raw materials and reduces the need for extracting new resources.</p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Recycling Process Section */}
+      <section className="process-section">
+        <div className="container">
+          <h2>How Recycling Works</h2>
+          <div className="process-steps">
+            <div className="step">
+              <h3>1. Collection</h3>
+              <p>Recyclable materials are collected from homes and businesses.</p>
+            </div>
+            <div className="step">
+              <h3>2. Sorting</h3>
+              <p>Materials are sorted by type at recycling facilities.</p>
+            </div>
+            <div className="step">
+              <h3>3. Processing</h3>
+              <p>Materials are cleaned and processed into raw materials.</p>
+            </div>
+            <div className="step">
+              <h3>4. Manufacturing</h3>
+              <p>Recycled materials are used to create new products.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2024 AIO. All rights reserved.</p>
+        <p>&copy; 2025 CRWA. All rights reserved. Together, we recycle for a better tomorrow.</p>
       </footer>
     </div>
   );

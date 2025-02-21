@@ -1,260 +1,217 @@
-/* Styles for the authentication modal overlay */
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+/* Overlay Background */
 .auth-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Prevents scroll bars if video is larger */
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1000; /* Ensure it's above other content */
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay behind the modal */
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Dark Theme Background Video */
+/* Video Background */
 .auth-video-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Ensure video doesn't overflow */
-    z-index: -1; /* Send video behind other elements */
+    overflow: hidden;
+    z-index: -1;
 }
 
 .background-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the entire area without distortion */
-    filter: brightness(50%); /* Dim the video for better text visibility */
+    object-fit: cover;
+    opacity: 0.6;
 }
 
-/* Modal container with dark theme styling */
+/* Auth Container */
 .auth-container {
-    background: #1f1f2e; /* Dark background */
-    color: #fff; /* Light text for readability */
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    padding: 24px;
-    max-width: 500px;
-    width: 100%;
     position: relative;
-    animation: fadeIn 0.3s ease-out;
+    max-width: 500px;
+    width: 90%;
+    background-color: #1c1c1c;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px red;
+    z-index: 1;
+    text-align: center;
 }
 
-/* Close button styles */
+/* Header Image */
+.auth-image h1 {
+    font-size: 1.8rem;
+    color: red;
+    margin-bottom: 20px;
+}
+
+/* Close Button */
 .close-button {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    background: #333; /* Dark background for the close button */
-    color: #fff; /* Light icon */
+    top: 15px;
+    right: 15px;
+    background: transparent;
     border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
+    font-size: 1.5rem;
+    color: red;
     cursor: pointer;
-    transition: background 0.3s ease;
+    z-index: 1001;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 .close-button:hover {
-    background: #444; /* Darker shade on hover */
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Styles for the authentication form */
+/* Form Styling */
+.auth-form-container h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
 .auth-form {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    gap: 15px;
+    padding: 0 10px;
 }
 
-/* Forgot Password link style */
-.forgot-password {
-    color: #bb86fc; /* Light purple for dark theme */
-    cursor: pointer;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-    display: block;
-    transition: color 0.3s ease;
+.input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* Hover effect for the Forgot Password link */
-.forgot-password:hover {
-    color: #3700b3; /* Darker purple on hover */
-    text-decoration: underline;
+.input-field label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: white;
 }
 
-.auth-form h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff; /* White text for heading */
-    text-align: center;
-}
-
-.auth-form label {
-    margin: 10px 0 5px;
-    font-size: 14px;
-    color: #bbb; /* Light gray text */
-}
-
-.auth-form input {
-    padding: 12px;
-    border: 1px solid #444; /* Dark border */
-    border-radius: 8px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-    background: #2c2c3c; /* Dark background for input fields */
-    color: #fff; /* White text */
-    width: calc(100% - 24px); /* Full width with padding adjustment */
-}
-
-/* Focus state for inputs */
-.auth-form input:focus {
-    border-color: #bb86fc; /* Light purple border on focus */
-}
-
-/* Submit button */
-.submit-button {
-    background: linear-gradient(135deg, #6200ea, #3700b3); /* Dark purple gradient */
-    color: #fff;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-    margin-top: 10px;
+.input-field input {
     width: 100%;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: #262626;
+    color: white;
+    font-size: 1rem;
 }
 
-.submit-button:hover {
-    background: linear-gradient(135deg, #bb86fc, #3700b3); /* Brighter purple on hover */
-    transform: scale(1.05); /* Slightly scale up on hover */
+.input-field input:focus {
+    outline: none;
+    border-color: white;
 }
 
-/* Switch Auth link */
+/* Buttons */
+.submit-button,
+.google-button {
+    background-color: red;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:hover,
+.google-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: black;
+    color: red;
+    border: 1px solid red;
+}
+
+.google-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Switch Auth Link */
 .switch-auth {
-    margin-top: 15px;
-    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
 }
 
 .switch-auth button {
     background: none;
     border: none;
-    color: #bb86fc;
+    color: red;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
-    text-decoration: underline;
+    transition: color 0.3s;
 }
 
-/* Google button */
-.auth-google {
-    margin-top: 10px;
+.switch-auth button:hover {
+    color: white;
 }
 
-.google-button {
-    background: linear-gradient(135deg, #2e4551, #121315);
-    color: #fff;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
-.google-button:hover {
-    background-color: #385686;
-}
-
-.google-logo {
-    width: 24px; /* Adjust size as needed */
-    height: auto;
-    margin-right: 10px; /* Space between logo and text */
-}
-
-/* Mobile responsiveness */
-@media screen and (max-width: 768px) {
-    /* Make the modal container smaller on mobile */
+/* Responsive Design */
+@media (max-width: 768px) {
     .auth-container {
-        padding: 16px;
-        max-width: 90%; /* Reduce max width for mobile */
+        padding: 15px;
+        width: 95%;
+        margin: 0 10px;
     }
 
-    /* Adjust form inputs */
-    .auth-form input {
-        padding: 10px;
-        font-size: 14px;
+    .auth-image h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
     }
 
-    /* Adjust submit button size */
-    .submit-button {
-        padding: 12px;
-        font-size: 16px;
+    .auth-form {
+        gap: 10px;
     }
 
-    /* Google button */
+    .input-field input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .submit-button,
     .google-button {
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    /* Adjust heading size */
-    .auth-form h2 {
-        font-size: 20px;
-    }
-
-    /* Adjust the Forgot Password link font size */
-    .forgot-password {
-        font-size: 16px;
-    }
-}
-
-/* Mobile Responsiveness for very small screens (under 480px) */
-@media screen and (max-width: 480px) {
-    .auth-container {
-        padding: 12px;
-        max-width: 90%; /* Reduce the modal further */
-    }
-
-    .auth-form h2 {
-        font-size: 18px; /* Smaller heading */
-    }
-
-    .auth-form input {
-        font-size: 14px; /* Smaller input text */
-    }
-
-    .submit-button {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .google-button {
-        padding: 10px;
-        font-size: 14px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 
     .close-button {
-        top: 12px;
-        right: 12px;
-        width: 25px;
-        height: 25px;
-        font-size: 14px;
+        top: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+    }
+
+    .switch-auth {
+        font-size: 0.8rem;
     }
 }

@@ -41,15 +41,15 @@ const signOutUser = async () => {
     }
 };
 
-// Save user data to Firestore
-const saveUserData = async (dataToSave) => {
+// Save recycling data to Firestore
+const saveRecyclingData = async (dataToSave) => {
     const user = auth.currentUser;
     if (!user) {
         throw new Error('User not authenticated');
     }
 
     const userId = user.uid;
-    const docRef = doc(db, 'users', userId, 'academic_advice', new Date().toISOString());
+    const docRef = doc(db, 'users', userId, 'recycling_data', new Date().toISOString());
     await setDoc(docRef, {
         ...dataToSave,
         userId,
@@ -57,4 +57,4 @@ const saveUserData = async (dataToSave) => {
 };
 
 // Export Firebase utilities
-export { auth, db, signInWithGoogle, signOutUser, saveUserData };
+export { auth, db, signInWithGoogle, signOutUser, saveRecyclingData };

@@ -8,14 +8,7 @@ import AuthPage from './components/AuthPage';
 import Home from './components/Home';
 import MyAio from './components/myaio';
 import MyAioDetails from './components/MyAioDetails';
-import Academic from './models/academic';
-import Career from './models/carrer';
-import Financial from './models/financial';
-import HealthAdvisor from './models/HealthAdvisor';
-import Legal from './models/legal';
-import TechAdvisor from './models/TechAdvisor';
-import Travel from './models/travel';
-import Entertainment from './models/entertainment';
+import RecyclerApp from './models/RecyclerApp';
 import { auth } from './components/firebase'; // Import your auth module
 
 const App = () => {
@@ -90,37 +83,11 @@ const App = () => {
 
                 {/* Model Routes */}
                 <Route
-                    path="/models/academic"
-                    element={user ? <Layout><Academic /></Layout> : <Navigate to="/" replace />}
+                    path="/models/RecyclerApp"
+                    element={user ? <Layout><RecyclerApp /></Layout> : <Navigate to="/" replace />}
                 />
-                <Route
-                    path="/models/career"
-                    element={user ? <Layout><Career /></Layout> : <Navigate to="/" replace />}
-                />
-                <Route
-                    path="/models/financial"
-                    element={user ? <Layout><Financial /></Layout> : <Navigate to="/" replace />}
-                />
-                <Route
-                    path="/models/health"
-                    element={user ? <Layout><HealthAdvisor /></Layout> : <Navigate to="/" replace />}
-                />
-                <Route
-                    path="/models/legal"
-                    element={user ? <Layout><Legal /></Layout> : <Navigate to="/" replace />}
-                />
-                <Route
-                    path="/models/tech"
-                    element={user ? <Layout><TechAdvisor /></Layout> : <Navigate to="/" replace />}
-                />
-                <Route
-                    path="/models/travel"
-                    element={user ? <Layout><Travel /></Layout> : <Navigate to="/" replace />}
-                />
-                <Route
-                    path="/models/entertainment"
-                    element={user ? <Layout><Entertainment /></Layout> : <Navigate to="/" replace />}
-                />
+               
+            
 
                 {/* Fallback Route */}
                 <Route path="*" element={<Navigate to="/" replace />} />

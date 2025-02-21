@@ -2,9 +2,21 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .App {
+    padding: 0 10px;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .App-logo {
+    height: 30vmin;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,8 +36,22 @@
   color: white;
 }
 
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 0 15px;
+  }
+}
+
 .App-link {
   color: #2c454d;
+}
+
+@media (max-width: 768px) {
+  .App-link {
+    font-size: 0.9em;
+    padding: 8px 12px;
+  }
 }
 
 @keyframes App-logo-spin {

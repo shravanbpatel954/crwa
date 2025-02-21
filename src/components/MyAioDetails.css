@@ -1,81 +1,117 @@
-/* Styling for MyAioDetails Component */
-
 .myaio-details-container {
-    font-family: 'Helvetica Neue', sans-serif;
-    padding: 30px;
-    margin: 0 auto;
-    max-width: 900px;
-    background: linear-gradient(135deg, #4e5b6e, #1c2b36);
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out;
-    overflow: hidden;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .myaio-details-container h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     text-align: center;
-    font-size: 2.4rem;
-    color: #ff6f61;
-    margin-bottom: 25px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    letter-spacing: 2px;
 }
 
-
 .myaio-item-detail {
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 12px;
-    background: #b8babc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #bb2b2b;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    transition: transform 0.2s ease;
 }
 
 .myaio-item-detail:hover {
-    background-color: #f4f4f4;
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
+
 
 .myaio-item-detail strong {
-    font-size: 1.2rem;
-    color: #343434;
-    margin-right: 15px;
+    color: #2c3e50;
     font-weight: 600;
-    text-transform: uppercase;
+    margin-right: 0.5rem;
 }
 
-.myaio-item-detail span {
-    font-size: 1.1rem;
-    color: #e2e2e2;
-    text-align: right;
-    word-break: break-word;
-    line-height: 1.5;
+.myaio-item-detail .markdown {
+    margin-top: 0.5rem;
+    color: #34495e;
+    line-height: 1.6;
 }
 
-/* Add responsive styling */
+.video-container {
+    margin-top: 1rem;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.myaio-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.myaio-buttons button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.myaio-buttons button:hover {
+    background-color: #2980b9;
+}
+
 @media (max-width: 768px) {
     .myaio-details-container {
-        padding: 20px;
-        max-width: 100%;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 8px;
     }
-
+    
+    .myaio-details-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
     .myaio-item-detail {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .video-container {
+        padding-bottom: 75%; /* 4:3 aspect ratio for mobile */
+        margin-top: 0.5rem;
+    }
+    
+    .myaio-buttons {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
+        width: 100%;
+        gap: 0.8rem;
+        margin-top: 1.5rem;
     }
-
-    .myaio-item-detail strong {
-        margin-bottom: 10px;
-    }
-
-    .myaio-item-detail span {
-        word-break: break-all;
+    
+    .myaio-buttons button {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
     }
 }
-

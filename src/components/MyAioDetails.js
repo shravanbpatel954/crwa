@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchUserData } from './firestoreService';
-import html2canvas from 'html2canvas'; // Import html2canvas
-import YouTube from 'react-youtube'; // Import YouTube component
-import { jsPDF } from 'jspdf'; // Import jsPDF
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+import Markdown from 'react-markdown';
 import './MyAioDetails.css';
 
 const MyAioDetails = () => {
@@ -33,72 +33,44 @@ const MyAioDetails = () => {
     }, [id]);
 
     const downloadImage = () => {
-        const element = document.getElementById('myaio-details'); // Capture the element by ID
-        const youtubeSection = document.querySelector('.youtube-videos');
-        if (youtubeSection) {
-            const placeholders = youtubeSection.querySelectorAll('.youtube-video-placeholder');
-            placeholders.forEach((placeholder) => {
-                placeholder.style.display = 'block';
-            });
-        }
+        const element = document.getElementById('myaio-details');
         html2canvas(element).then((canvas) => {
             const image = canvas.toDataURL('image/png');
             const link = document.createElement('a');
             link.href = image;
-            link.download = 'myaio-details.png';
+            link.download = 'recycler-project.png';
             link.click();
-            if (youtubeSection) {
-                const placeholders = youtubeSection.querySelectorAll('.youtube-video-placeholder');
-                placeholders.forEach((placeholder) => {
-                    placeholder.style.display = 'none';
-                });
-            }
         });
     };
 
     const downloadPDF = () => {
         const doc = new jsPDF();
-    
-        // Title and other text
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(18);
-        doc.text('Advice Details', 20, 20);
-    
+        doc.text('Recycler Project Details', 20, 20);
+
         doc.setFontSize(12);
-        doc.text(`Title: ${itemDetails.advice ? itemDetails.advice.split('\n')[0] : 'No Title'}`, 20, 30);
-        doc.text(`Country: ${itemDetails.country || 'N/A'}`, 20, 40);
-        doc.text(`Language: ${itemDetails.language || 'N/A'}`, 20, 50);
-        doc.text(`Situation: ${itemDetails.situation || 'N/A'}`, 20, 60);
-        doc.text(`Timestamp: ${itemDetails.timestamp ? new Date(itemDetails.timestamp).toLocaleString() : 'N/A'}`, 20, 70);
-    
-        // Advice points
-        const advicePoints = itemDetails.advice ? itemDetails.advice.split('\n') : [];
-        doc.text('Advice:', 20, 80);
-        advicePoints.forEach((point, index) => {
-            doc.text(`${index + 1}. ${point}`, 20, 90 + (index * 10));
-        });
-    
-        // YouTube Video links
-        const startY = 110 + (advicePoints.length * 10);  // Adjust the starting position for YouTube videos
-        if (itemDetails.youtubeLinks && itemDetails.youtubeLinks.length > 0) {
-            doc.text('Recommended YouTube Videos:', 20, startY);
-            itemDetails.youtubeLinks.forEach((link, index) => {
-                const videoId = link.split('v=')[1];
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                // Add clickable link to PDF
-                doc.text(`Video ${index + 1}: `, 20, startY + (10 * (index + 1)));
-                doc.setTextColor(0, 0, 255); // Set the color to blue
-                doc.textWithLink(videoUrl, 70, startY + (10 * (index + 1)), { url: videoUrl });
-                doc.setTextColor(0, 0, 0); // Reset to black for the rest of the text
-            });
-        } else {
-            doc.text('No YouTube videos available.', 20, startY);
+        doc.text(`Object: ${itemDetails.objectName || 'N/A'}`, 20, 30);
+        doc.text(`Material: ${itemDetails.material || 'N/A'}`, 20, 40);
+        doc.text(`Selected Project: ${itemDetails.selectedItem || 'N/A'}`, 20, 50);
+        doc.text(`Timestamp: ${itemDetails.timestamp ? new Date(itemDetails.timestamp).toLocaleString() : 'N/A'}`, 20, 60);
+
+        // Add instructions
+        const instructions = itemDetails.instructions || '';
+        const splitInstructions = doc.splitTextToSize(instructions, 180);
+        doc.text('Instructions:', 20, 70);
+        doc.text(splitInstructions, 20, 80);
+
+        // Add video URL if available and not empty
+        if (itemDetails.videoUrl && itemDetails.videoUrl.trim() !== '') {
+            doc.text('Video Tutorial:', 20, 90 + (splitInstructions.length * 5));
+            doc.setTextColor(0, 0, 255);
+            doc.textWithLink(itemDetails.videoUrl, 20, 100 + (splitInstructions.length * 5), { url: itemDetails.videoUrl });
+            doc.setTextColor(0, 0, 0);
         }
-    
-        // Save PDF
-        doc.save('myaio-details.pdf');
+
+        doc.save('recycler-project.pdf');
     };
-    
 
     if (loading) {
         return <p>Loading details...</p>;
@@ -110,105 +82,43 @@ const MyAioDetails = () => {
 
     return (
         <div className="myaio-details-container" id="myaio-details">
-            <h1>Advice Details</h1>
+            <h1>Recycler Project Details</h1>
             <div className="myaio-item-detail">
-                <strong>Title:</strong> {itemDetails.advice ? itemDetails.advice.split('\n')[0] : 'No Title'}
+                <strong>Object:</strong> {itemDetails.objectName || 'N/A'}
             </div>
             <div className="myaio-item-detail">
-                <strong>Country:</strong> {itemDetails.country || 'N/A'}
+                <strong>Material:</strong> {itemDetails.material || 'N/A'}
             </div>
             <div className="myaio-item-detail">
-                <strong>Language:</strong> {itemDetails.language || 'N/A'}
+                <strong>Selected Project:</strong> {itemDetails.selectedItem || 'N/A'}
             </div>
             <div className="myaio-item-detail">
-                <strong>Situation:</strong> {itemDetails.situation || 'N/A'}
-            </div>
-            <div className="myaio-item-detail">
-                <strong>Advice:</strong>
-                <ul className="advice-list">
-                    {itemDetails.advice.split('\n').map((point, index) => (
-                        <li key={index} className="advice-point">{point}</li>
-                    ))}
-                </ul>
+                <strong>Instructions:</strong>
+                <Markdown>{itemDetails.instructions}</Markdown>
             </div>
             <div className="myaio-item-detail">
                 <strong>Timestamp:</strong> {itemDetails.timestamp ? new Date(itemDetails.timestamp).toLocaleString() : 'N/A'}
             </div>
 
-            {/* YouTube Video Section */}
-            <div className="myaio-item-detail">
-                <strong>Recommended YouTube Videos:</strong>
-                <div className="youtube-videos">
-                    {itemDetails.youtubeLinks && itemDetails.youtubeLinks.length > 0 ? (
-                        itemDetails.youtubeLinks.map((link, index) => {
-                            const videoId = link.split('v=')[1];
-                            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
-                            return (
-                                <div key={index} className="youtube-video-container">
-                                    <div
-                                        className="youtube-video-placeholder"
-                                        style={{
-                                            display: 'none',
-                                            textAlign: 'center',
-                                            marginBottom: '10px',
-                                        }}
-                                    >
-                                        <img
-                                            src={thumbnailUrl}
-                                            alt={`Thumbnail for video ${videoId}`}
-                                            style={{ width: '320px', height: '180px' }}
-                                        />
-                                        <p>Video {index + 1}</p>
-                                    </div>
-                                    <YouTube videoId={videoId} opts={{ height: '390', width: '640', playerVars: { autoplay: 0 } }} />
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <p>No YouTube videos available.</p>
-                    )}
+            {itemDetails.videoUrl && itemDetails.videoUrl.trim() !== '' && (
+                <div className="myaio-item-detail">
+                    <strong>Video Tutorial:</strong>
+                    <div className="video-container">
+                        <iframe
+                            width="560"
+                            height="315"
+                            src={itemDetails.videoUrl}
+                            title={itemDetails.selectedItem}
+                            frameBorder="0"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
                 </div>
-            </div>
+            )}
 
-            {/* Buttons for Download and Share */}
-            <div className="myaio-buttons" style={{ textAlign: 'center', marginTop: '20px' }}>
-                <button
-                    onClick={downloadImage}
-                    className="myaio-download-btn"
-                    style={{
-                        padding: '12px 24px',
-                        fontSize: '16px',
-                        backgroundColor: '#4CAF50',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                        outline: 'none',
-                        marginRight: '10px',
-                    }}
-                >
-                    Download as Image
-                </button>
-                <button
-                    onClick={downloadPDF}
-                    className="myaio-download-btn"
-                    style={{
-                        padding: '12px 24px',
-                        fontSize: '16px',
-                        backgroundColor: '#2196F3',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                        outline: 'none',
-                    }}
-                >
-                    Download as PDF
-                </button>
+            <div className="myaio-buttons">
+                <button onClick={downloadImage}>Download as Image</button>
+                <button onClick={downloadPDF}>Download as PDF</button>
             </div>
         </div>
     );

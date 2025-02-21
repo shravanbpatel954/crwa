@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './myaio.css'; 
 import { fetchUserData, deleteUserData } from './firestoreService';
+
+
+
 import { useNavigate } from 'react-router-dom';
 
 const MyAio = () => {
@@ -10,18 +13,22 @@ const MyAio = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchData = async () => {
+    const fetchData = async () => {
             try {
-                const data = await fetchUserData();
-                if (data) {
-                    const dataArray = Object.entries(data).map(([id, item]) => ({
+                const userData = await fetchUserData();
+
+                
+                if (userData) {
+                    const dataArray = Object.entries(userData).map(([id, item]) => ({
                         id,
-                        ...item,
+                        ...item
                     }));
                     // Sort the data by timestamp in descending order (most recent first)
-                    dataArray.sort((a, b) => b.timestamp - a.timestamp);
-                    setPrepaData(dataArray); 
+                    dataArray.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                    setPrepaData(dataArray);
                 }
+
+
             } catch (err) {
                 console.error('Error fetching user data:', err);
                 setError('Failed to fetch data.');
@@ -57,7 +64,7 @@ const MyAio = () => {
 
     return (
         <div className="myaio-container">
-            <h1><span style={{ color: '#007bff' }}>MyAIO's Library</span></h1>
+            <h1><span style={{ color: '#007bff' }}>MyCRWA's Library</span></h1>
             
             <div className="myaio-content">
                 <div className="myaio-header">
@@ -68,8 +75,13 @@ const MyAio = () => {
                 </div>
 
                 {prepaData.length > 0 ? (
-                    prepaData.map(({ id, created, timestamp, timeSaved, advice }) => {
-                        const title = advice ? advice.split('\n')[0] : 'No Title';
+                    prepaData.map(({ id, created, timestamp, timeSaved, advice, type, selectedItem }) => {
+                        const title = type === 'recycler' ? 
+
+                            selectedItem || 'Recycler Project' : 
+
+                            (advice ? advice.split('\n')[0] : 'No Title');
+
 
                         return (
                             <div

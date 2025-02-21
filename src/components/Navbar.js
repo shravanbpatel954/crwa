@@ -1,3 +1,4 @@
+// Navbar.js
 import React, { useState } from 'react';
 import './Navbar.css';
 import logo from './assets/logo.png';
@@ -22,13 +23,12 @@ const Navbar = ({ openAuthModal }) => {
       <nav className="navbar">
         <div className="nav-container">
           <a href="#home" className="nav-logo" onClick={() => scrollToSection('home')}>
-            <img src={logo} alt="AIO Logo" className="logo-image" />
+            <img src={logo} alt="Logo" className="logo-image" />
           </a>
           <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
             <a href="#home" onClick={() => scrollToSection('home')} className="nav-link">Home</a>
             <a href="#about" onClick={() => scrollToSection('about')} className="nav-link">About</a>
-            <a href="#features" onClick={() => scrollToSection('features-section')} className="nav-link">Features</a>
-            <a href="#solutions" onClick={() => scrollToSection('solutions-section')} className="nav-link">Solutions</a>
+            <a href="#features" onClick={() => scrollToSection('features-section')} className="nav-link"></a>
             <button onClick={() => openAuthModal('signin')} className="nav-button outline">Sign In</button>
           </div>
           <div className="nav-toggle" onClick={toggleMenu}>
