@@ -122,7 +122,7 @@ const RecyclerApp = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [recyclerData, setRecyclerData] = useState(null);
 
-  const genAI = new GoogleGenerativeAI('AIzaSyA1y07j_sGl5kkJj9CzRUXTgEEkJqeX2fM');
+  const genAI = new GoogleGenerativeAI('AIzaSyD9M9EFr1YV6_W9_EDVczaBG5JYk4_umKs');
   const youtubeAPIKey = 'AIzaSyATfSrHAfTIv5EB_JsZR6kkVM6VJndPug0';
 
   const handleGenerateSuggestions = async () => {
@@ -134,7 +134,7 @@ const RecyclerApp = () => {
       setVideoUrl(null);
       setPage('suggestions');
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash'});
       const prompt = `Suggest multiple creative reuse ideas for ${objectName}, made of ${material}. Each suggestion should be clear and concise.`;
       const result = await model.generateContent(prompt);
       const generatedResponse = await result.response.text();
@@ -156,7 +156,7 @@ const RecyclerApp = () => {
       setSelectedSuggestion(selectedItem);
       setPage('instructions');
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash'});
       const prompt = `Provide detailed steps to create ${selectedItem} from ${objectName}, made of ${material}.`;
       const result = await model.generateContent(prompt);
       const generatedResponse = await result.response.text();
