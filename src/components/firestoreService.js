@@ -5,13 +5,13 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDLI7ihO4D5727QiaHLMfANI3JqBsbNohk",
-  authDomain: "prepa-d7e15.firebaseapp.com",
-  projectId: "prepa-d7e15",
-  storageBucket: "prepa-d7e15.appspot.com",
-  messagingSenderId: "390909925247",
-  appId: "1:390909925247:web:f36a98cfafeaf872e1ac4a",
-  measurementId: "G-S0C80GRKNB"
+    apiKey: "AIzaSyB9WZIXLE0rVPkN8mxhuF7yNh-ud4sOC5g",
+    authDomain: "a-i-o-f7e68.firebaseapp.com",
+    projectId: "a-i-o-f7e68",
+    storageBucket: "a-i-o-f7e68.firebasestorage.app",
+    messagingSenderId: "636301331438",
+    appId: "1:636301331438:web:48469b376d783cc79a1cff",
+    measurementId: "G-D9Z673GZNP"
 };
 
 // Initialize Firebase if it hasn't been initialized yet
