@@ -5,16 +5,14 @@ import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDU1JcZfwA-9DwqqGQkX92OTZpU93WXNic",
-    authDomain: "recycle-33094.firebaseapp.com",
-    projectId: "recycle-33094",
-    storageBucket: "recycle-33094.firebasestorage.app",
-    messagingSenderId: "138313615848",
-    appId: "1:138313615848:web:a688f4b6324a397bd77c5d",
-    measurementId: "G-T6C07GD09E"
-  };
-
-
+  apiKey: "AIzaSyDLI7ihO4D5727QiaHLMfANI3JqBsbNohk",
+  authDomain: "prepa-d7e15.firebaseapp.com",
+  projectId: "prepa-d7e15",
+  storageBucket: "prepa-d7e15.appspot.com",
+  messagingSenderId: "390909925247",
+  appId: "1:390909925247:web:f36a98cfafeaf872e1ac4a",
+  measurementId: "G-S0C80GRKNB"
+};
 // Initialize Firebase services
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
