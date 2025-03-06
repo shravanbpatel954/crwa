@@ -5,14 +5,14 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyB9WZIXLE0rVPkN8mxhuF7yNh-ud4sOC5g",
-    authDomain: "a-i-o-f7e68.firebaseapp.com",
-    projectId: "a-i-o-f7e68",
-    storageBucket: "a-i-o-f7e68.firebasestorage.app",
-    messagingSenderId: "636301331438",
-    appId: "1:636301331438:web:48469b376d783cc79a1cff",
-    measurementId: "G-D9Z673GZNP"
-};
+    apiKey: "AIzaSyDU1JcZfwA-9DwqqGQkX92OTZpU93WXNic",
+    authDomain: "recycle-33094.firebaseapp.com",
+    projectId: "recycle-33094",
+    storageBucket: "recycle-33094.firebasestorage.app",
+    messagingSenderId: "138313615848",
+    appId: "1:138313615848:web:a688f4b6324a397bd77c5d",
+    measurementId: "G-T6C07GD09E"
+  };
 
 // Initialize Firebase if it hasn't been initialized yet
 if (!getApps().length) {
